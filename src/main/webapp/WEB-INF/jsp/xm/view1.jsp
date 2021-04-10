@@ -52,6 +52,26 @@
                                     <input class="common-text required" id="title" name="name" size="50" value="${obj.name}" disabled="disabled" type="text">
                                 </td>
                         </tr>
+
+                        <tr>
+                            <th><i class="require-red">*</i>工作：</th>
+                            <td>
+                                <input class="common-text required" id="work" name="name" size="50" value="${obj.work}" disabled="disabled" type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><i class="require-red">*</i>工作类型：</th>
+                            <td>
+                                <input class="common-text required" id="workType" name="name" size="50" value="${obj.workType}" disabled="disabled" type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><i class="require-red">*</i>开始时间：</th>
+                            <td>
+                                <input type="text" name="beginDate" class='ECalendar' id="ECalendar_date" disabled="disabled"  value="${obj.beginDate}"/>
+                                  </td>
+                        </tr>
+
                          <tr>
                             <th width="120"><i class="require-red">*</i>是否通过：</th>
                             <td>

@@ -96,28 +96,26 @@ INSERT INTO `teacherclass` (`id`, `teacherId`, `bj`, `xk`, `address`) VALUES
 
 -- 导出  表 ssm_jsmanage_sys.xm 结构
 DROP TABLE IF EXISTS `xm`;
-CREATE TABLE IF NOT EXISTS `xm` (
+CREATE TABLE `xm` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
   `teacherId` int(11) DEFAULT NULL,
-  `content` text DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `content` text,
+  `work` varchar(10) DEFAULT NULL COMMENT '类型一',
+  `workType` varchar(10) DEFAULT NULL COMMENT '类型二',
+  `beginDate` date DEFAULT NULL COMMENT '监考时间，开课时间，论文答辩时间',
   `status` int(11) DEFAULT NULL,
   `score` int(11) DEFAULT NULL COMMENT '积分',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
--- 正在导出表  ssm_jsmanage_sys.xm 的数据：~8 rows (大约)
-DELETE FROM `xm`;
-/*!40000 ALTER TABLE `xm` DISABLE KEYS */;
-INSERT INTO `xm` (`id`, `name`, `teacherId`, `content`, `status`, `score`) VALUES
-	(1, '测试工作01', 1, '上报2', 5, NULL),
-	(3, '测试工作02', 1, NULL, 0, NULL),
-	(4, '工作05', 1, '工作二轮审批', 9, 5),
-	(5, '工作07', 1, '11133', 9, 15),
-	(6, '我是012', 5, '少时诵诗书', 9, 10),
-	(8, '11', 5, NULL, 8, NULL),
-	(9, '22', 5, NULL, 9, 20),
-	(10, '17级计算机一班微机原理课程', 1, '教学工作', 3, NULL);
+-- ----------------------------
+-- Records of xm
+-- ----------------------------
+INSERT INTO `xm` VALUES ('10', '1', '17级计算机一班微机原理课程', '教学工作test', '授课', '专业课', '2021-04-18', '5', null);
+INSERT INTO `xm` VALUES ('20', '1', '一类论文批改', null, '监考', '一类论文', '2021-04-09', '2', null);
+INSERT INTO `xm` VALUES ('21', '1', '论文答辩', null, '论文', '一类论文', '2021-04-18', '8', null);
+INSERT INTO `xm` VALUES ('23', '1', '实验课监考', null, '监考', '实验课', '2021-04-27', '-1', null);
 /*!40000 ALTER TABLE `xm` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

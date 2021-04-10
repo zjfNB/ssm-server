@@ -62,7 +62,7 @@
                     <table class="result-tab" width="100%">
                         <tr>
                             <th>工作量排名</th>
-                             <th>工作积分</th>
+                             <th>工作量指数</th>
                             <th>工作名称</th>
                             <th>教师名称</th>
                             <th>操作</th>

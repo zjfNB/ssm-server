@@ -52,15 +52,35 @@
                                     <input class="common-text required" id="title" name="name" size="50" value="${obj.name}" disabled="disabled" type="text">
                                 </td>
                         </tr>
+
+                        <tr>
+                            <th><i class="require-red">*</i>工作：</th>
+                            <td>
+                                <input class="common-text required" id="work" name="name" size="50" value="${obj.work}" disabled="disabled" type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><i class="require-red">*</i>工作类型：</th>
+                            <td>
+                                <input class="common-text required" id="workType" name="name" size="50" value="${obj.workType}" disabled="disabled" type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><i class="require-red">*</i>开始时间：</th>
+                            <td>
+                                <input type="text" name="beginDate" class='ECalendar' id="ECalendar_date" disabled="disabled"  value="${obj.beginDate}"/>
+                                  </td>
+                        </tr>
+
                         <tr>
                                 <th>工作说明：</th>
                                 <td><textarea name="content" disabled="disabled"  class="common-textarea" id="content" cols="30" style="width: 98%;" rows="10">${obj.content }</textarea></td>
                             </tr>
                             
                            <tr>
-                                <th><i class="require-red">*</i>设置积分：</th>
+                                <th><i class="require-red">*</i>评价工作量：</th>
                                 <td>
-                                    <input class="common-text required" id="title" name="score" size="50" value=""  type="text">
+                                    <input class="common-text required" id="title1" name="score" size="50" value=""  type="text">
                                 </td>
                         </tr>
                          <tr>

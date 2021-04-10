@@ -23,6 +23,9 @@
            name,
            teacherId,
            content,
+           work,
+           work_type,
+           begin_date,
            status,
            score
 	</sql>
@@ -33,6 +36,9 @@
         	#{name} ,
         	#{teacherId} ,
         	#{content} ,
+        	#{work},
+        	#{workType},
+        	#{beginDate},
         	#{status} ,
         	#{score} 
 	</sql>
@@ -48,6 +54,15 @@
 		    <if test="content != null" >
 	            content = #{content} ,
 	        </if>
+		<if test="work != null and work != ''">
+			work = #{work},
+		</if>
+		<if test="workType != null and workType != ''">
+			workType = #{workType},
+		</if>
+		<if test="beginDate != null and beginDate != ''">
+			beginDate = #{beginDate},
+		</if>
 		    <if test="status != null" >
 	            status = #{status} ,
 	        </if>

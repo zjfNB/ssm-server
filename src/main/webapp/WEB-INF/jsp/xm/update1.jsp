@@ -48,11 +48,59 @@
                     <table class="insert-tab" width="100%">
                         <tbody>
                         <tr>
+                            <th><i class="require-red">*</i>工作：</th>
+                            <td>
+                                <select name="work" id="teacherTitle" class="required" style = "width:100px;" onChange="getCity()">
+                                    <c:if test="${obj.work == null} || ${obj.work == ''}">
+                                        <option value="-1">请选择工作</option>
+                                        <option value="监考" >监考</option>
+                                        <option value="论文">论文</option>
+                                        <option value="授课">授课</option>
+                                    </c:if>
+                                    <c:if test="${obj.work == '监考'}">
+                                        <option value="-1">请选择工作</option>
+                                        <option value="监考" selected="selected">监考</option>
+                                        <option value="论文">论文</option>
+                                        <option value="授课">授课</option>
+                                    </c:if>
+                                    <c:if test="${obj.work == '论文'}">
+                                        <option value="-1">请选择工作</option>
+                                        <option value="监考" >监考</option>
+                                        <option value="论文" selected="selected">论文</option>
+                                        <option value="授课">授课</option>
+                                    </c:if>
+                                    <c:if test="${obj.work == '授课'}">
+                                        <option value="-1">请选择工作</option>
+                                        <option value="监考" >监考</option>
+                                        <option value="论文">论文</option>
+                                        <option value="授课" selected="selected">授课</option>
+                                    </c:if>
+
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><i class="require-red">*</i>工作类型：</th>
+                            <td>
+                                <SELECT name="workType" id="workType" style = "width:100px;">
+                                    <OPTION VALUE="${obj.workType}">${obj.workType}</OPTION>
+                                </SELECT>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><i class="require-red">*</i>开始时间：</th>
+                            <td>
+                                <input type="text" name="beginDate" class='ECalendar' id="ECalendar_date"  value="${obj.beginDate}"/>
+                                  </td>
+                        </tr>
+
+                        <tr>
                                 <th><i class="require-red">*</i>工作名称：</th>
                                 <td>
                                     <input class="common-text required" id="title" name="name" size="50" value="${obj.name }" type="text">
                                 </td>
                         </tr>
+
                             <tr>
                                 <th></th>
                                 <td>
@@ -70,8 +118,43 @@
 </div>
 </body>
 <script type="text/javascript">
-		$(function(){
-				$("#ECalendar_case1").ECalendar({
+    //定义了城市的二维数组，里面的顺序跟省份的顺序是相同的。通过selectedIndex获得省份的下标值来得到相应的城市数组
+    var city=[
+        ["公共课","专业课","实验课"],
+        ["一类论文","二类论文"],
+        ["公共课","专业课","实验课"]
+    ];
+
+    function getCity(){
+        //获得省份下拉框的对象
+        var sltProvince=document.myform.work;
+        //获得城市下拉框的对象
+        var sltCity=document.myform.workType;
+
+        //得到对应省份的城市数组
+        var provinceCity=city[sltProvince.selectedIndex - 1];
+
+        //清空城市下拉框，仅留提示选项
+        sltCity.length=0;
+
+        //将城市数组中的值填充到城市下拉框中
+        for(var i=0;i<provinceCity.length;i++){
+            //Option(选项描述，选项值) 等价于 <option value="选项值" >选项描述</option>;
+            sltCity[i+1]=new Option(provinceCity[i],provinceCity[i]);
+        }
+    }
+    $(function(){
+        $("#ECalendar_date").ECalendar({
+            type:"date",   //模式，time: 带时间选择; date: 不带时间选择;
+            stamp : false,   //是否转成时间戳，默认true;
+            offset:[0,2],   //弹框手动偏移量;
+            format:"yyyy-mm-dd",   //时间格式 默认 yyyy-mm-dd hh:ii;
+            skin:3,   //皮肤颜色，默认随机，可选值：0-8,或者直接标注颜色值;
+            step:10,   //选择时间分钟的精确度;
+            callback:function(v,e){} //回调函数
+        });
+
+        $("#ECalendar_case1").ECalendar({
 						 type:"date",
 						 skin:"#233",
 						 offset:[0,2]

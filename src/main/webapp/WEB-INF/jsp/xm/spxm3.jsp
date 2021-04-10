@@ -71,7 +71,7 @@
 	                                                           待工作总结审批
 	                     </c:if>
 	                      <c:if test="${data.status == 8 }">
-	                                                           待设置积分
+	                                                           待评价工作量
 	                     </c:if>
 	                       <c:if test="${data.status == 9 }">
 	                         工作已完结
@@ -84,7 +84,7 @@
 	                        <a class="link-update" href="${ctx}/xm/view3?id=${data.id}">去审批</a>
 	                     </c:if>
 	                       <c:if test="${data.status ==8 }">
-	                        <a class="link-update" href="${ctx}/xm/view5?id=${data.id}">设置积分</a>
+	                        <a class="link-update" href="${ctx}/xm/view5?id=${data.id}">评价工作量</a>
 	                     </c:if>
 	                       </c:if>
 	                       

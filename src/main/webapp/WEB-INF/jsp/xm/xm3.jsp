@@ -63,6 +63,9 @@
                         <tr>
                             <th>工作名称</th>
                             <th>教师名称</th>
+							<th>工作种类</th>
+							<th>工作类型</th>
+							<th>开始时间</th>
                             <th>状态</th>
                             <th>操作</th>
                         </tr>
@@ -71,6 +74,9 @@
 	                  <tr>
 	                    <td>${data.name}</td>
 	                    <td>${data.teacher.username}</td>
+						  <td>${data.work}</td>
+						  <td>${data.workType}</td>
+						  <td>${data.beginDate}</td>
 	                    <td>
 	                      <c:if test="${data.status == 5 }">
 	                                                           待上报工作总结审批
@@ -85,7 +91,7 @@
 	                         工作已完结
 	                       </c:if>
 	                        <c:if test="${data.status == 8 }">
-	                         待设置积分
+	                         待评价工作量
 	                       </c:if>
 	                    </td>
 	                   <td>
